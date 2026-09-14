@@ -8,9 +8,9 @@
       "RSpec"
     ],
     "project_name": "Book collection",
-    "timestamp": "2026-09-14T22:16:17.902+00:00",
+    "timestamp": "2026-09-14T23:21:00.259+00:00",
     "root": "/csce431/book_collection",
-    "commit": "a3fbd8e61dadc2108e31764765d1c68b297a32d6",
+    "commit": "345e0586b393b204fab5aa0fe4cab5aa74cc38cd",
     "primary_coverage": "line",
     "line_coverage": true,
     "branch_coverage": false,
@@ -18,12 +18,12 @@
   },
   "total": {
     "lines": {
-      "covered": 61,
-      "missed": 11,
+      "covered": 52,
+      "missed": 20,
       "omitted": 201,
       "total": 72,
-      "percent": 84.72222222222223,
-      "strength": 0.9444444444444444
+      "percent": 72.22222222222223,
+      "strength": 0.8194444444444444
     }
   },
   "coverage": {
@@ -132,7 +132,7 @@
         null,
         null,
         1,
-        1,
+        0,
         null,
         null,
         null,
@@ -140,7 +140,7 @@
         null,
         null,
         1,
-        2,
+        8,
         null,
         null,
         null,
@@ -148,21 +148,8 @@
         null,
         null,
         1,
-        2,
+        0,
         null,
-        2,
-        2,
-        2,
-        1,
-        null,
-        2,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
         0,
         0,
         0,
@@ -177,6 +164,19 @@
         null,
         1,
         0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
         null,
         0,
         0,
@@ -193,13 +193,13 @@
         null,
         null,
         1,
-        2,
+        0,
         null,
         null
       ],
-      "lines_covered_percent": 66.66666666666667,
-      "covered_lines": 22,
-      "missed_lines": 11,
+      "lines_covered_percent": 39.39393939393939,
+      "covered_lines": 13,
+      "missed_lines": 20,
       "omitted_lines": 38,
       "total_lines": 33
     },
@@ -812,6 +812,118 @@
         },
         "app/controllers/books_controller.rb": {
           "line": 66.66
+        },
+        "app/helpers/application_helper.rb": {
+          "line": 100.0
+        },
+        "app/helpers/books_helper.rb": {
+          "line": 100.0
+        },
+        "app/models/application_record.rb": {
+          "line": 100.0
+        },
+        "app/models/book.rb": {
+          "line": 100.0
+        },
+        "config/application.rb": {
+          "line": 100.0
+        },
+        "config/boot.rb": {
+          "line": 100.0
+        },
+        "config/environment.rb": {
+          "line": 100.0
+        },
+        "config/environments/test.rb": {
+          "line": 100.0
+        },
+        "config/initializers/assets.rb": {
+          "line": 100.0
+        },
+        "config/initializers/content_security_policy.rb": {
+          "line": 100.0
+        },
+        "config/initializers/filter_parameter_logging.rb": {
+          "line": 100.0
+        },
+        "config/initializers/inflections.rb": {
+          "line": 100.0
+        },
+        "config/routes.rb": {
+          "line": 100.0
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T23:18:35Z",
+      "branch": "dev",
+      "commit": "345e0586b393b204fab5aa0fe4cab5aa74cc38cd",
+      "totals": {
+        "line": 84.72
+      },
+      "groups": {},
+      "files": {
+        "app/controllers/application_controller.rb": {
+          "line": 100.0
+        },
+        "app/controllers/books_controller.rb": {
+          "line": 66.66
+        },
+        "app/helpers/application_helper.rb": {
+          "line": 100.0
+        },
+        "app/helpers/books_helper.rb": {
+          "line": 100.0
+        },
+        "app/models/application_record.rb": {
+          "line": 100.0
+        },
+        "app/models/book.rb": {
+          "line": 100.0
+        },
+        "config/application.rb": {
+          "line": 100.0
+        },
+        "config/boot.rb": {
+          "line": 100.0
+        },
+        "config/environment.rb": {
+          "line": 100.0
+        },
+        "config/environments/test.rb": {
+          "line": 100.0
+        },
+        "config/initializers/assets.rb": {
+          "line": 100.0
+        },
+        "config/initializers/content_security_policy.rb": {
+          "line": 100.0
+        },
+        "config/initializers/filter_parameter_logging.rb": {
+          "line": 100.0
+        },
+        "config/initializers/inflections.rb": {
+          "line": 100.0
+        },
+        "config/routes.rb": {
+          "line": 100.0
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T23:21:00Z",
+      "branch": "dev",
+      "commit": "345e0586b393b204fab5aa0fe4cab5aa74cc38cd",
+      "totals": {
+        "line": 72.22
+      },
+      "groups": {},
+      "files": {
+        "app/controllers/application_controller.rb": {
+          "line": 100.0
+        },
+        "app/controllers/books_controller.rb": {
+          "line": 39.39
         },
         "app/helpers/application_helper.rb": {
           "line": 100.0

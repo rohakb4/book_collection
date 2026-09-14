@@ -73,3 +73,5 @@ gem 'concurrent-ruby', '1.3.4'
 
 # Gem to manage db
 gem 'yaml_db'
+
+gem "json", "< 3.0"

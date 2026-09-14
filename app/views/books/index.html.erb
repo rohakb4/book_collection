@@ -7,10 +7,20 @@
 <div id="books">
   <% @books.each do |book| %>
     <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+    <div>
+      <%= link_to "Show Book", book %>
+      &emsp;
+      <%= link_to "Edit Book", edit_book_path(book) %>
+      &emsp;
+      <%= button_to "Delete Book", book, 
+          method: :delete, 
+          form: {
+            data: {turbo_confirm: 'Are you sure?'}, 
+            style: "display: inline-block;"
+          }
+      %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New Book", new_book_path %>
+<p><%= link_to "New Book", new_book_path %></p>

@@ -9,7 +9,9 @@ RSpec.describe 'Creating a book', type: :feature do
     fill_in 'book[title]', with: 'harry potter'
     fill_in 'book[author]', with: 'J. K. Rowling'
     fill_in 'book[price]', with: 10
-    fill_in 'book[published_date]', with: Date.new(2004, 10, 19)
+    select '2004', from: 'book_published_date_1i'
+    select 'October', from: 'book_published_date_2i'
+    select '19', from: 'book_published_date_3i'
   end
 
   scenario 'valid title' do
@@ -55,8 +57,10 @@ RSpec.describe 'Creating a book', type: :feature do
   end
 
   scenario 'invalid published date' do
-    fill_in 'book[published_date]', with: nil
+    select '', from: 'book_published_date_1i'
+    select '', from: 'book_published_date_2i'
+    select '', from: 'book_published_date_3i'
     click_on 'Create Book'
-    expect(page).to have_content('Published Date can\'t be blank')
+    expect(page).to have_content('Published date can\'t be blank')
   end
 end

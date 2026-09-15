@@ -8,9 +8,9 @@
       "RSpec"
     ],
     "project_name": "Book collection",
-    "timestamp": "2026-09-14T23:21:00.259+00:00",
+    "timestamp": "2026-09-15T00:00:59.268+00:00",
     "root": "/csce431/book_collection",
-    "commit": "345e0586b393b204fab5aa0fe4cab5aa74cc38cd",
+    "commit": "fa770de7440eddf6b9329b3592e17ee046ffeee1",
     "primary_coverage": "line",
     "line_coverage": true,
     "branch_coverage": false,
@@ -18,12 +18,12 @@
   },
   "total": {
     "lines": {
-      "covered": 52,
-      "missed": 20,
-      "omitted": 201,
-      "total": 72,
-      "percent": 72.22222222222223,
-      "strength": 0.8194444444444444
+      "covered": 64,
+      "missed": 11,
+      "omitted": 202,
+      "total": 75,
+      "percent": 85.33333333333333,
+      "strength": 1.6266666666666667
     }
   },
   "coverage": {
@@ -120,7 +120,8 @@
         "",
         "  # Only allow a list of trusted parameters through.",
         "  def book_params",
-        "    params.expect(book: [:title])",
+        "    params.expect(book: [:title, :author, :price, :published_date])",
+        "",
         "  end",
         "end"
       ],
@@ -132,7 +133,7 @@
         null,
         null,
         1,
-        0,
+        4,
         null,
         null,
         null,
@@ -148,8 +149,21 @@
         null,
         null,
         1,
-        0,
+        8,
         null,
+        8,
+        8,
+        8,
+        4,
+        null,
+        8,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
         0,
         0,
         0,
@@ -164,19 +178,6 @@
         null,
         1,
         0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
         null,
         0,
         0,
@@ -193,14 +194,15 @@
         null,
         null,
         1,
-        0,
+        8,
+        null,
         null,
         null
       ],
-      "lines_covered_percent": 39.39393939393939,
-      "covered_lines": 13,
-      "missed_lines": 20,
-      "omitted_lines": 38,
+      "lines_covered_percent": 66.66666666666667,
+      "covered_lines": 22,
+      "missed_lines": 11,
+      "omitted_lines": 39,
       "total_lines": 33
     },
     "app/helpers/application_helper.rb": {
@@ -268,6 +270,9 @@
         "",
         "class Book < ApplicationRecord",
         "  validates :title, presence: true",
+        "  validates :author, presence: true",
+        "  validates :price, presence: true",
+        "  validates :published_date, presence: true",
         "end"
       ],
       "lines": [
@@ -275,13 +280,16 @@
         null,
         1,
         1,
+        1,
+        1,
+        1,
         null
       ],
       "lines_covered_percent": 100.0,
-      "covered_lines": 2,
+      "covered_lines": 5,
       "missed_lines": 0,
       "omitted_lines": 3,
-      "total_lines": 2
+      "total_lines": 5
     },
     "config/application.rb": {
       "source": [
@@ -911,11 +919,11 @@
       }
     },
     {
-      "created_at": "2026-09-14T23:21:00Z",
+      "created_at": "2026-09-15T00:00:59Z",
       "branch": "dev",
-      "commit": "345e0586b393b204fab5aa0fe4cab5aa74cc38cd",
+      "commit": "fa770de7440eddf6b9329b3592e17ee046ffeee1",
       "totals": {
-        "line": 72.22
+        "line": 85.33
       },
       "groups": {},
       "files": {
@@ -923,7 +931,7 @@
           "line": 100.0
         },
         "app/controllers/books_controller.rb": {
-          "line": 39.39
+          "line": 66.66
         },
         "app/helpers/application_helper.rb": {
           "line": 100.0

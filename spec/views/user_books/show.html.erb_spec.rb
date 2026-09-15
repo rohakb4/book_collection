@@ -2,15 +2,27 @@ require 'rails_helper'
 
 RSpec.describe "user_books/show", type: :view do
   before(:each) do
-    assign(:user_book, UserBook.create!(
-      user_id: 2,
-      book_id: 3
-    ))
+    user = User.create!(username: "Test User")
+
+    book = Book.create!(
+      title: "Test Book",
+      author: "Test Author",
+      price: 10.00,
+      published_date: Date.new(2025, 1, 1)
+    )
+
+    @user_book = UserBook.create!(
+      user: user,
+      book: book
+    )
+
+    assign(:user_book, @user_book)
   end
 
-  it "renders attributes in <p>" do
+  it "renders attributes" do
     render
-    expect(rendered).to match(/2/)
-    expect(rendered).to match(/3/)
+
+    expect(rendered).to match(/#{@user_book.user_id}/)
+    expect(rendered).to match(/#{@user_book.book_id}/)
   end
 end

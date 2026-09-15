@@ -2,22 +2,31 @@ require 'rails_helper'
 
 RSpec.describe "user_books/index", type: :view do
   before(:each) do
+    user = User.create!(username: "Test User")
+
+    book = Book.create!(
+      title: "Test Book",
+      author: "Test Author",
+      price: 10.00,
+      published_date: Date.new(2025, 1, 1)
+    )
+
     assign(:user_books, [
       UserBook.create!(
-        user_id: 2,
-        book_id: 3
+        user: user,
+        book: book
       ),
       UserBook.create!(
-        user_id: 2,
-        book_id: 3
+        user: user,
+        book: book
       )
     ])
   end
 
   it "renders a list of user_books" do
     render
-    cell_selector = 'div>p'
-    assert_select cell_selector, text: Regexp.new(2.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(3.to_s), count: 2
+
+    expect(rendered).to match(/Test User/)
+    expect(rendered).to match(/Test Book/)
   end
 end

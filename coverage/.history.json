@@ -265,6 +265,80 @@
         },
         "groups": {},
         "files": {}
+      },
+      {
+        "created_at": "2026-09-15T04:47:44Z",
+        "branch": "run_test",
+        "commit": "bf08850b05277052c973d92c59a2753c1e8c64cc",
+        "totals": {
+          "line": 66.44
+        },
+        "groups": {},
+        "files": {
+          "app/controllers/application_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/books_controller.rb": {
+            "line": 66.66
+          },
+          "app/controllers/user_books_controller.rb": {
+            "line": 39.39
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 39.39
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/books_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/user_books_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/book.rb": {
+            "line": 100.0
+          },
+          "app/models/user.rb": {
+            "line": 100.0
+          },
+          "app/models/user_book.rb": {
+            "line": 100.0
+          },
+          "config/application.rb": {
+            "line": 100.0
+          },
+          "config/boot.rb": {
+            "line": 100.0
+          },
+          "config/environment.rb": {
+            "line": 100.0
+          },
+          "config/environments/test.rb": {
+            "line": 100.0
+          },
+          "config/initializers/assets.rb": {
+            "line": 100.0
+          },
+          "config/initializers/content_security_policy.rb": {
+            "line": 100.0
+          },
+          "config/initializers/filter_parameter_logging.rb": {
+            "line": 100.0
+          },
+          "config/initializers/inflections.rb": {
+            "line": 100.0
+          },
+          "config/routes.rb": {
+            "line": 100.0
+          }
+        }
       }
     ]
   }

@@ -2,15 +2,15 @@
   "$schema": "https://raw.githubusercontent.com/simplecov-ruby/simplecov/main/schemas/coverage-v1.3.schema.json",
   "meta": {
     "schema_version": "1.3",
-    "simplecov_version": "1.2.0",
+    "simplecov_version": "1.3.0",
     "command_name": "RSpec",
     "command_names": [
       "RSpec"
     ],
-    "project_name": "Test app",
-    "timestamp": "2026-09-11T19:18:01.097+00:00",
-    "root": "/csce431/test_app",
-    "commit": "c2b908dd261013a452f9a2238704851fa6a15485",
+    "project_name": "Book collection",
+    "timestamp": "2026-09-15T00:00:59.268+00:00",
+    "root": "/csce431/book_collection",
+    "commit": "fa770de7440eddf6b9329b3592e17ee046ffeee1",
     "primary_coverage": "line",
     "line_coverage": true,
     "branch_coverage": false,
@@ -18,50 +18,286 @@
   },
   "total": {
     "lines": {
-      "covered": 29,
-      "missed": 0,
-      "omitted": 120,
-      "total": 29,
-      "percent": 100.0,
-      "strength": 1.0
+      "covered": 64,
+      "missed": 11,
+      "omitted": 202,
+      "total": 75,
+      "percent": 85.33333333333333,
+      "strength": 1.6266666666666667
     }
   },
   "coverage": {
+    "app/controllers/application_controller.rb": {
+      "source": [
+        "# frozen_string_literal: true",
+        "",
+        "class ApplicationController < ActionController::Base",
+        "  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.",
+        "  allow_browser versions: :modern",
+        "end"
+      ],
+      "lines": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        null
+      ],
+      "lines_covered_percent": 100.0,
+      "covered_lines": 2,
+      "missed_lines": 0,
+      "omitted_lines": 4,
+      "total_lines": 2
+    },
+    "app/controllers/books_controller.rb": {
+      "source": [
+        "# frozen_string_literal: true",
+        "",
+        "class BooksController < ApplicationController",
+        "  before_action :set_book, only: %i[show edit update destroy]",
+        "",
+        "  # GET /books or /books.json",
+        "  def index",
+        "    @books = Book.all",
+        "  end",
+        "",
+        "  # GET /books/1 or /books/1.json",
+        "  def show; end",
+        "",
+        "  # GET /books/new",
+        "  def new",
+        "    @book = Book.new",
+        "  end",
+        "",
+        "  # GET /books/1/edit",
+        "  def edit; end",
+        "",
+        "  # POST /books or /books.json",
+        "  def create",
+        "    @book = Book.new(book_params)",
+        "",
+        "    respond_to do |format|",
+        "      if @book.save",
+        "        format.html { redirect_to books_path, notice: 'Book was successfully created.' }",
+        "        format.json { render :show, status: :created, location: @book }",
+        "      else",
+        "        format.html { render :new, status: :unprocessable_content }",
+        "        format.json { render json: @book.errors, status: :unprocessable_content }",
+        "      end",
+        "    end",
+        "  end",
+        "",
+        "  # PATCH/PUT /books/1 or /books/1.json",
+        "  def update",
+        "    respond_to do |format|",
+        "      if @book.update(book_params)",
+        "        format.html { redirect_to books_path, notice: 'Book was successfully updated.', status: :see_other }",
+        "        format.json { render :show, status: :ok, location: @book }",
+        "      else",
+        "        format.html { render :edit, status: :unprocessable_content }",
+        "        format.json { render json: @book.errors, status: :unprocessable_content }",
+        "      end",
+        "    end",
+        "  end",
+        "",
+        "  # DELETE /books/1 or /books/1.json",
+        "  def destroy",
+        "    @book.destroy!",
+        "",
+        "    respond_to do |format|",
+        "      format.html { redirect_to books_path, notice: 'Book was successfully destroyed.', status: :see_other }",
+        "      format.json { head :no_content }",
+        "    end",
+        "  end",
+        "",
+        "  private",
+        "",
+        "  # Use callbacks to share common setup or constraints between actions.",
+        "  def set_book",
+        "    @book = Book.find(params.expect(:id))",
+        "  end",
+        "",
+        "  # Only allow a list of trusted parameters through.",
+        "  def book_params",
+        "    params.expect(book: [:title, :author, :price, :published_date])",
+        "",
+        "  end",
+        "end"
+      ],
+      "lines": [
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        8,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        8,
+        null,
+        8,
+        8,
+        8,
+        4,
+        null,
+        8,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        8,
+        null,
+        null,
+        null
+      ],
+      "lines_covered_percent": 66.66666666666667,
+      "covered_lines": 22,
+      "missed_lines": 11,
+      "omitted_lines": 39,
+      "total_lines": 33
+    },
     "app/helpers/application_helper.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "module ApplicationHelper",
         "end"
       ],
       "lines": [
+        null,
+        null,
         1,
         null
       ],
       "lines_covered_percent": 100.0,
       "covered_lines": 1,
       "missed_lines": 0,
-      "omitted_lines": 1,
+      "omitted_lines": 3,
       "total_lines": 1
     },
     "app/helpers/books_helper.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "module BooksHelper",
         "end"
       ],
       "lines": [
+        null,
+        null,
         1,
         null
       ],
       "lines_covered_percent": 100.0,
       "covered_lines": 1,
       "missed_lines": 0,
-      "omitted_lines": 1,
+      "omitted_lines": 3,
       "total_lines": 1
+    },
+    "app/models/application_record.rb": {
+      "source": [
+        "# frozen_string_literal: true",
+        "",
+        "class ApplicationRecord < ActiveRecord::Base",
+        "  primary_abstract_class",
+        "end"
+      ],
+      "lines": [
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "lines_covered_percent": 100.0,
+      "covered_lines": 2,
+      "missed_lines": 0,
+      "omitted_lines": 3,
+      "total_lines": 2
+    },
+    "app/models/book.rb": {
+      "source": [
+        "# frozen_string_literal: true",
+        "",
+        "class Book < ApplicationRecord",
+        "  validates :title, presence: true",
+        "  validates :author, presence: true",
+        "  validates :price, presence: true",
+        "  validates :published_date, presence: true",
+        "end"
+      ],
+      "lines": [
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "lines_covered_percent": 100.0,
+      "covered_lines": 5,
+      "missed_lines": 0,
+      "omitted_lines": 3,
+      "total_lines": 5
     },
     "config/application.rb": {
       "source": [
-        "require_relative \"boot\"",
+        "# frozen_string_literal: true",
         "",
-        "require \"rails/all\"",
+        "require_relative 'boot'",
+        "",
+        "require 'rails/all'",
         "",
         "# Require the gems listed in Gemfile, including any gems",
         "# you've limited to :test, :development, or :production.",
@@ -88,6 +324,8 @@
         "end"
       ],
       "lines": [
+        null,
+        null,
         1,
         null,
         1,
@@ -119,17 +357,21 @@
       "lines_covered_percent": 100.0,
       "covered_lines": 7,
       "missed_lines": 0,
-      "omitted_lines": 20,
+      "omitted_lines": 22,
       "total_lines": 7
     },
     "config/boot.rb": {
       "source": [
-        "ENV[\"BUNDLE_GEMFILE\"] ||= File.expand_path(\"../Gemfile\", __dir__)",
+        "# frozen_string_literal: true",
         "",
-        "require \"bundler/setup\" # Set up gems listed in the Gemfile.",
-        "require \"bootsnap/setup\" # Speed up boot time by caching expensive operations."
+        "ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __dir__)",
+        "",
+        "require 'bundler/setup' # Set up gems listed in the Gemfile.",
+        "require 'bootsnap/setup' # Speed up boot time by caching expensive operations."
       ],
       "lines": [
+        null,
+        null,
         1,
         null,
         1,
@@ -138,18 +380,22 @@
       "lines_covered_percent": 100.0,
       "covered_lines": 3,
       "missed_lines": 0,
-      "omitted_lines": 1,
+      "omitted_lines": 3,
       "total_lines": 3
     },
     "config/environment.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "# Load the Rails application.",
-        "require_relative \"application\"",
+        "require_relative 'application'",
         "",
         "# Initialize the Rails application.",
         "Rails.application.initialize!"
       ],
       "lines": [
+        null,
+        null,
         null,
         1,
         null,
@@ -159,11 +405,13 @@
       "lines_covered_percent": 100.0,
       "covered_lines": 2,
       "missed_lines": 0,
-      "omitted_lines": 3,
+      "omitted_lines": 5,
       "total_lines": 2
     },
     "config/environments/test.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "# The test environment is used exclusively to run your application's",
         "# test suite. You never need to work with it otherwise. Remember that",
         "# your test database is \"scratch space\" for the test suite and is wiped",
@@ -179,10 +427,10 @@
         "  # this is usually not necessary, and can slow down your test suite. However, it's",
         "  # recommended that you enable it in continuous integration systems to ensure eager",
         "  # loading is working properly before deploying your code.",
-        "  config.eager_load = ENV[\"CI\"].present?",
+        "  config.eager_load = ENV['CI'].present?",
         "",
         "  # Configure public file server for tests with cache-control for performance.",
-        "  config.public_file_server.headers = { \"cache-control\" => \"public, max-age=3600\" }",
+        "  config.public_file_server.headers = { 'cache-control' => 'public, max-age=3600' }",
         "",
         "  # Show full error reports.",
         "  config.consider_all_requests_local = true",
@@ -203,7 +451,7 @@
         "  config.action_mailer.delivery_method = :test",
         "",
         "  # Set host to be used by links generated in mailer templates.",
-        "  config.action_mailer.default_url_options = { host: \"example.com\" }",
+        "  config.action_mailer.default_url_options = { host: 'example.com' }",
         "",
         "  # Print deprecation notices to the stderr.",
         "  config.active_support.deprecation = :stderr",
@@ -219,6 +467,8 @@
         "end"
       ],
       "lines": [
+        null,
+        null,
         null,
         null,
         null,
@@ -276,20 +526,24 @@
       "lines_covered_percent": 100.0,
       "covered_lines": 13,
       "missed_lines": 0,
-      "omitted_lines": 40,
+      "omitted_lines": 42,
       "total_lines": 13
     },
     "config/initializers/assets.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "# Be sure to restart your server when you modify this file.",
         "",
         "# Version of your assets, change this if you want to expire all your assets.",
-        "Rails.application.config.assets.version = \"1.0\"",
+        "Rails.application.config.assets.version = '1.0'",
         "",
         "# Add additional assets to the asset load path.",
         "# Rails.application.config.assets.paths << Emoji.images_path"
       ],
       "lines": [
+        null,
+        null,
         null,
         null,
         null,
@@ -301,11 +555,13 @@
       "lines_covered_percent": 100.0,
       "covered_lines": 1,
       "missed_lines": 0,
-      "omitted_lines": 6,
+      "omitted_lines": 8,
       "total_lines": 1
     },
     "config/initializers/content_security_policy.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "# Be sure to restart your server when you modify this file.",
         "",
         "# Define an application-wide content security policy.",
@@ -357,26 +613,32 @@
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "lines_covered_percent": 100.0,
       "covered_lines": 0,
       "missed_lines": 0,
-      "omitted_lines": 25,
+      "omitted_lines": 27,
       "total_lines": 0
     },
     "config/initializers/filter_parameter_logging.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "# Be sure to restart your server when you modify this file.",
         "",
         "# Configure parameters to be partially matched (e.g. passw matches password) and filtered from the log file.",
         "# Use this to limit dissemination of sensitive information.",
         "# See the ActiveSupport::ParameterFilter documentation for supported notations and behaviors.",
-        "Rails.application.config.filter_parameters += [",
-        "  :passw, :email, :secret, :token, :_key, :crypt, :salt, :certificate, :otp, :ssn, :cvv, :cvc",
+        "Rails.application.config.filter_parameters += %i[",
+        "  passw email secret token _key crypt salt certificate otp ssn cvv cvc",
         "]"
       ],
       "lines": [
+        null,
+        null,
         null,
         null,
         null,
@@ -389,11 +651,13 @@
       "lines_covered_percent": 100.0,
       "covered_lines": 1,
       "missed_lines": 0,
-      "omitted_lines": 7,
+      "omitted_lines": 9,
       "total_lines": 1
     },
     "config/initializers/inflections.rb": {
       "source": [
+        "# frozen_string_literal: true",
+        "",
         "# Be sure to restart your server when you modify this file.",
         "",
         "# Add new inflection rules using the following format. Inflections",
@@ -427,15 +691,288 @@
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "lines_covered_percent": 100.0,
       "covered_lines": 0,
       "missed_lines": 0,
-      "omitted_lines": 16,
+      "omitted_lines": 18,
       "total_lines": 0
+    },
+    "config/routes.rb": {
+      "source": [
+        "# frozen_string_literal: true",
+        "",
+        "Rails.application.routes.draw do",
+        "  resources :books",
+        "  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html",
+        "",
+        "  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.",
+        "  # Can be used by load balancers and uptime monitors to verify that the app is live.",
+        "  get 'up' => 'rails/health#show', as: :rails_health_check",
+        "",
+        "  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)",
+        "  # get \"manifest\" => \"rails/pwa#manifest\", as: :pwa_manifest",
+        "  # get \"service-worker\" => \"rails/pwa#service_worker\", as: :pwa_service_worker",
+        "",
+        "  # Defines the root path route (\"/\")",
+        "  root 'books#index'",
+        "end"
+      ],
+      "lines": [
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null
+      ],
+      "lines_covered_percent": 100.0,
+      "covered_lines": 4,
+      "missed_lines": 0,
+      "omitted_lines": 13,
+      "total_lines": 4
     }
   },
   "groups": {},
-  "errors": {}
+  "errors": {},
+  "history": [
+    {
+      "created_at": "2026-09-14T22:15:21Z",
+      "branch": "dev",
+      "commit": "a3fbd8e61dadc2108e31764765d1c68b297a32d6",
+      "totals": {
+        "line": 84.72
+      },
+      "groups": {},
+      "files": {
+        "app/controllers/application_controller.rb": {
+          "line": 100.0
+        },
+        "app/controllers/books_controller.rb": {
+          "line": 66.66
+        },
+        "app/helpers/application_helper.rb": {
+          "line": 100.0
+        },
+        "app/helpers/books_helper.rb": {
+          "line": 100.0
+        },
+        "app/models/application_record.rb": {
+          "line": 100.0
+        },
+        "app/models/book.rb": {
+          "line": 100.0
+        },
+        "config/application.rb": {
+          "line": 100.0
+        },
+        "config/boot.rb": {
+          "line": 100.0
+        },
+        "config/environment.rb": {
+          "line": 100.0
+        },
+        "config/environments/test.rb": {
+          "line": 100.0
+        },
+        "config/initializers/assets.rb": {
+          "line": 100.0
+        },
+        "config/initializers/content_security_policy.rb": {
+          "line": 100.0
+        },
+        "config/initializers/filter_parameter_logging.rb": {
+          "line": 100.0
+        },
+        "config/initializers/inflections.rb": {
+          "line": 100.0
+        },
+        "config/routes.rb": {
+          "line": 100.0
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T22:16:17Z",
+      "branch": "dev",
+      "commit": "a3fbd8e61dadc2108e31764765d1c68b297a32d6",
+      "totals": {
+        "line": 84.72
+      },
+      "groups": {},
+      "files": {
+        "app/controllers/application_controller.rb": {
+          "line": 100.0
+        },
+        "app/controllers/books_controller.rb": {
+          "line": 66.66
+        },
+        "app/helpers/application_helper.rb": {
+          "line": 100.0
+        },
+        "app/helpers/books_helper.rb": {
+          "line": 100.0
+        },
+        "app/models/application_record.rb": {
+          "line": 100.0
+        },
+        "app/models/book.rb": {
+          "line": 100.0
+        },
+        "config/application.rb": {
+          "line": 100.0
+        },
+        "config/boot.rb": {
+          "line": 100.0
+        },
+        "config/environment.rb": {
+          "line": 100.0
+        },
+        "config/environments/test.rb": {
+          "line": 100.0
+        },
+        "config/initializers/assets.rb": {
+          "line": 100.0
+        },
+        "config/initializers/content_security_policy.rb": {
+          "line": 100.0
+        },
+        "config/initializers/filter_parameter_logging.rb": {
+          "line": 100.0
+        },
+        "config/initializers/inflections.rb": {
+          "line": 100.0
+        },
+        "config/routes.rb": {
+          "line": 100.0
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T23:18:35Z",
+      "branch": "dev",
+      "commit": "345e0586b393b204fab5aa0fe4cab5aa74cc38cd",
+      "totals": {
+        "line": 84.72
+      },
+      "groups": {},
+      "files": {
+        "app/controllers/application_controller.rb": {
+          "line": 100.0
+        },
+        "app/controllers/books_controller.rb": {
+          "line": 66.66
+        },
+        "app/helpers/application_helper.rb": {
+          "line": 100.0
+        },
+        "app/helpers/books_helper.rb": {
+          "line": 100.0
+        },
+        "app/models/application_record.rb": {
+          "line": 100.0
+        },
+        "app/models/book.rb": {
+          "line": 100.0
+        },
+        "config/application.rb": {
+          "line": 100.0
+        },
+        "config/boot.rb": {
+          "line": 100.0
+        },
+        "config/environment.rb": {
+          "line": 100.0
+        },
+        "config/environments/test.rb": {
+          "line": 100.0
+        },
+        "config/initializers/assets.rb": {
+          "line": 100.0
+        },
+        "config/initializers/content_security_policy.rb": {
+          "line": 100.0
+        },
+        "config/initializers/filter_parameter_logging.rb": {
+          "line": 100.0
+        },
+        "config/initializers/inflections.rb": {
+          "line": 100.0
+        },
+        "config/routes.rb": {
+          "line": 100.0
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-15T00:00:59Z",
+      "branch": "dev",
+      "commit": "fa770de7440eddf6b9329b3592e17ee046ffeee1",
+      "totals": {
+        "line": 85.33
+      },
+      "groups": {},
+      "files": {
+        "app/controllers/application_controller.rb": {
+          "line": 100.0
+        },
+        "app/controllers/books_controller.rb": {
+          "line": 66.66
+        },
+        "app/helpers/application_helper.rb": {
+          "line": 100.0
+        },
+        "app/helpers/books_helper.rb": {
+          "line": 100.0
+        },
+        "app/models/application_record.rb": {
+          "line": 100.0
+        },
+        "app/models/book.rb": {
+          "line": 100.0
+        },
+        "config/application.rb": {
+          "line": 100.0
+        },
+        "config/boot.rb": {
+          "line": 100.0
+        },
+        "config/environment.rb": {
+          "line": 100.0
+        },
+        "config/environments/test.rb": {
+          "line": 100.0
+        },
+        "config/initializers/assets.rb": {
+          "line": 100.0
+        },
+        "config/initializers/content_security_policy.rb": {
+          "line": 100.0
+        },
+        "config/initializers/filter_parameter_logging.rb": {
+          "line": 100.0
+        },
+        "config/initializers/inflections.rb": {
+          "line": 100.0
+        },
+        "config/routes.rb": {
+          "line": 100.0
+        }
+      }
+    }
+  ]
 }

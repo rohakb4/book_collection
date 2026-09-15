@@ -1,0 +1,10 @@
+{
+  "name": "Book Collection",
+  "description": "CSCE 431 Book Collection application",
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "scripts": {
+    "postdeploy": "bin/rails db:migrate"
+  }
+}
